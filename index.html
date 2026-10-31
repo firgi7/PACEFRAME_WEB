@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PACEFRAME Photobooth</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+<header><div class="logo" id="home"><b>PACE</b>FRAME</div><div class="steps" id="steps"></div></header>
+<main>
+<!-- 0. HERO -->
+<section id="s0" class="on"><div class="hero">
+  <div class="strip l"><i></i><i></i><i></i><i></i></div>
+  <div class="strip r"><i></i><i></i><i></i><i></i></div>
+  <h1>Every Pace,<br><span>A Story.</span></h1>
+  <p>Photobooth online untuk pengunjung CFD. Pilih frame, foto lewat webcam, bayar QRIS, scan untuk unduh.</p>
+  <button class="btn" id="start">Mulai Foto</button></div></section>
+
+<!-- 1. GALERI TEMPLATE -->
+<section id="s1"><h2>Galeri Template</h2><p class="sub">Pilih frame, lalu langsung mulai.</p>
+  <div class="bar" id="fil"></div><div class="grid" id="tpls"></div></section>
+
+<!-- 2. KAMERA -->
+<section id="s2"><h2>Ambil Foto</h2><p class="sub" id="camSub"></p>
+  <div class="cam"><video id="vid" autoplay playsinline muted></video><div class="count" id="count"></div><div class="flash" id="flash"></div></div>
+  <div class="bar" id="flt" style="justify-content:center;margin-top:14px"></div>
+  <div class="thumbs" id="thumbs"></div><p class="msg" id="camMsg"></p>
+  <div class="row"><button class="btn ghost" id="back1">Ganti Frame</button><button class="btn" id="shoot">Mulai</button></div></section>
+
+<!-- 3. KUSTOMISASI -->
+<section id="s3"><h2>Kustomisasi</h2><p class="sub">Atur warna frame dan stiker.</p>
+  <div class="split"><canvas id="edit" class="big"></canvas>
+  <div class="panel"><h3>Warna frame</h3><div class="sw" id="cols"></div><h3>Stiker</h3><div class="sw" id="stk"></div>
+  <div class="row"><button class="btn ghost" id="retake">Foto Ulang</button><button class="btn" id="toPay">Lanjut Bayar</button></div></div></div></section>
+
+<!-- 4. PEMBAYARAN -->
+<section id="s4"><h2>Pembayaran</h2><p class="sub">Pratinjau masih berwatermark. Scan QRIS untuk membuka versi bersih.</p>
+  <div class="split"><canvas id="prev" class="big"></canvas>
+  <div class="panel"><div class="price" id="price"></div><div class="qr" id="payQr"></div>
+  <div class="row"><button class="btn" id="paid">Simulasi: Sudah Bayar</button></div>
+  <div class="note">Demo: QR contoh. Versi live memakai QRIS dinamis dari payment gateway dan cek status otomatis.</div></div></div></section>
+
+<!-- 5. HASIL & UNDUH -->
+<section id="s5"><h2>Foto Siap!</h2><p class="sub">Scan QR untuk mengunduh di ponselmu.</p>
+  <div class="split"><canvas id="final" class="big"></canvas>
+  <div class="panel"><div class="qr" id="dlQr"></div><div class="note" id="dlUrl"></div>
+  <div class="row"><button class="btn" id="dl">Unduh Langsung</button><button class="btn ghost" id="again">Foto Lagi</button></div>
+  <div class="note">Demo: QR berisi tautan contoh. Versi live mengunggah foto ke server lebih dulu.</div></div></div></section>
+</main>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
